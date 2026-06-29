@@ -4,6 +4,42 @@ import plotly.express as px
 
 # Set page configuration
 st.set_page_config(page_title="🏁 F1 Historical Insights Dashboard", layout="wide")
+st.markdown("""
+    <style>
+        /* Global font styles and soft background */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        html, body, [data-testid="stAppViewContainer"] {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Tactical Red Accent for Active Tabs */
+        button[data-baseweb="tab"] {
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            padding: 10px 20px !important;
+        }
+        button[data-baseweb="tab"][aria-selected="true"] {
+            color: #FF1801 !important;
+            border-bottom-color: #FF1801 !important;
+        }
+        
+        /* Metric block custom styling */
+        div[data-testid="stMetricValue"] {
+            font-size: 28px !important;
+            font-weight: 700 !important;
+        }
+    </style>
+""", unsafe_html=True)
+
+# Define Official F1 Team Hex Palette for consistent categorical graphing
+F1_TEAM_COLORS = {
+    "Ferrari": "#F30300", "Red Bull": "#0600EF", "Mercedes": "#00A19C",
+    "McLaren": "#FF8700", "Aston Martin": "#006F62", "Alpine": "#005BA9",
+    "Williams": "#005AFF", "AlphaTauri": "#2B4562", "RB": "#6600CC", 
+    "Visa Cash App RB": "#6600CC", "Alfa Romeo": "#900000", "Sauber": "#52E252",
+    "Kick Sauber": "#52E252", "Haas": "#FFFFFF", "Renault": "#FFF500",
+    "Racing Point": "#F596C8", "Force India": "#F596C8", "Toro Rosso": "#001AFF"
+}
 
 # -------------------------------------------------------------------------
 # 1. OPTIMIZED DATA LOADING
